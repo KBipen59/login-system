@@ -1,0 +1,1 @@
+// only landing page js
