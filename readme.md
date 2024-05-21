@@ -18,3 +18,11 @@ If user is already logged in, user should not be able to go to login page or reg
     -   register
     -   index.html, index.css, index.js
 -   readme.md
+
+
+## Bootstrap (including responsive)
+- padding 
+- margin
+- flex box
+- container
+- grid system (columns not display grid)

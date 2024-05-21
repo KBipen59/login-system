@@ -1,1 +1,60 @@
 /* only panding page css */
+
+
+/* Default height for small devices */
+#intro-example {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Height for devices larger than 992px */
+  @media (min-width: 992px) {
+    #intro-example {
+      height: 600px;
+    }
+  }
+
+
+  :root {
+    --color-primary: #38006C;
+    --color-secondary: #6B7FD7;
+    --color-white: #F8F7FF;
+    --color-dark: #0E0004;
+}
+
+body{
+  background: linear-gradient(142deg, rgba(196,235,255,1) 0%, rgba(241,235,255,1) 99%) !important;
+
+}
+
+
+.btn ,.btn-primary , .btn-lg {
+  background-color: var(--color-secondary);
+  border-radius: 1px solid var(--color-secondary) !important;
+  outline: none;
+  border-radius: 4px !important;
+
+}
+
+.text-primary{
+  color: var(--color-primary) !important;
+}
+
+
+
+.btn:hover{
+  background-color: white;
+  color: black;
+}
+
+
+#hero-section svg {
+  fill: var(--color-dark)
+
+}
+
+/* footer.btn.btn-lg{
+  
+} */
+
