@@ -65,3 +65,11 @@
 
 ## Resend Activation Link Form Field 
 1. Email (backend will only accept variable named "email")
+
+{
+  firstName: "",
+  lastName: "",
+  email: "",
+  passowrd: "",
+  phone: ""
+}

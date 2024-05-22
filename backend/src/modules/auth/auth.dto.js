@@ -8,6 +8,7 @@ const RegisterDTO = Joi.object({
     phone: Joi.string().min(10).max(10).optional(),
 })
 
+
 const LoginDTO = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
