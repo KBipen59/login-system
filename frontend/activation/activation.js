@@ -31,7 +31,7 @@ async function fetchApi() {
         // Success 
     }catch(error){
         if(error.message.includes("jwt")){
-            showToast("Token is Invalid")
+            showToast("Token is Invalid or Token might be expired")
         }else{
             showToast(error)
         }
