@@ -25,7 +25,7 @@ class AuthController {
                 `Dear ${user.firstName} ${user.lastName} <br/>
                 <p>You have registered your account with username <strong>${user.firstName} ${user.lastName}</strong>.</p>
                 <p>Please click the link below or copy and paste the url in browser to activate your account:</p>
-                <a href="${process.env.FRONTEND_URL}/activate/${user.activationToken}">
+                <a href="${process.env.FRONTEND_URL}/activation/?token=${user.activationToken}">
                     Click here
                 </a>
                 <p>Regards,</p>
