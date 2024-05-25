@@ -26,3 +26,12 @@ If user is already logged in, user should not be able to go to login page or reg
 - flex box
 - container
 - grid system (columns not display grid)
+
+## git
+- git status
+- git stash (latest code will be stored in temporary memory)
+- git pull 
+- git stash pop ( extract stash code and keep it in our working directory)
+- git add .
+- git commit -m 'message'
+- git push 

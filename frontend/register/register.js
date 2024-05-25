@@ -1,6 +1,8 @@
 const form = document.querySelector('.form')
 const passwordToggler = document.querySelectorAll('.password-toggle')
 const pwds = document.querySelectorAll('.pwd')
+const eyeIcon = document.querySelectorAll('.bi-eye-fill')
+const eyeSlash = document.querySelectorAll('.bi-eye-slash')
 
 passwordToggler.forEach((toggler)=> {
     toggler.addEventListener('click', function() {
@@ -8,13 +10,23 @@ passwordToggler.forEach((toggler)=> {
         pwds.forEach((pwd) => {
             if(pwd.getAttribute("type") === "password"){
                 pwd.setAttribute("type" ,"text")
-                passwordToggler.forEach((tog)=>{
-                    tog.innerText = "hide"
+                eyeIcon.forEach((icon)=>{
+                    icon.style.visibility = "visible"
+                    icon.style.opacity = 1
+                })
+                eyeSlash.forEach((icon) => {
+                    icon.style.visibility = "hidden"
+                    icon.style.opacity = 0
                 })
             }else{
                 pwd.setAttribute("type" ,"password")
-                passwordToggler.forEach((tog)=>{
-                    tog.innerText = "show"
+                eyeIcon.forEach((icon)=>{
+                    icon.style.visibility = "hidden"
+                    icon.style.opacity = 0
+                })
+                eyeSlash.forEach((icon) => {
+                    icon.style.visibility = "visible"
+                    icon.style.opacity = 1
                 })
             }                
         })
@@ -70,7 +82,8 @@ form.addEventListener('submit',function (e) {
         return 
     }
 
-    const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    // const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    const emailReg = /^[\w+.-]+@([\w-]+\.)+[\w-]{2,4}$/
     if (!user.email.match(emailReg)) {
         showToast("Please enter a valid Email address");
         return;
@@ -94,8 +107,48 @@ form.addEventListener('submit',function (e) {
         return
         }
     }
-    console.log(user)
-    showToast('Registration Sucessfull', 'success')
 
     // POST request to api
+    // const requestData = {
+    //     firstName: user.firstName,
+    //     lastName: user.lastName,
+    //     email: user.email,
+    //     password: user.password, 
+    //     phone: user.phone || undefined
+    // }
+
+    // fetchApi(requestData)
+
+    const {confirmPassword: confirm, ...userData} = user
+
+    userData.phone = userData.phone || undefined
+
+    fetchApi(userData)
 } )
+
+
+
+const BASE_URL = 'http://localhost:5000/api/v1/'
+
+async function fetchApi (user) {
+    try{
+        const response = await fetch(`${BASE_URL}auth/register`, {
+            method: "POST",
+            body: JSON.stringify(user), 
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+        
+        const data = await response.json()
+
+        if(response.status !== 201 ){
+            throw new Error(data.message)
+        }
+        showToast("Your account registration has been sucessfull and the activation link has been sent to your e-mail", "success")
+
+    }catch (error){
+        showToast(error)    
+    }
+}
+

@@ -1,3 +1,27 @@
 body{
     background: linear-gradient(142deg, rgba(196,235,255,1) 0%, rgba(241,235,255,1) 99%) !important;
 }
+
+.password-field{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.password-toggle{
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    top: 4px;
+}
+
+.bi-eye-fill{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 57%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    transition: ease-in 0.2s
+}
