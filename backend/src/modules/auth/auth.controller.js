@@ -56,7 +56,7 @@ class AuthController {
                 throw {code: 404, message: "user not found"}
             }
 
-            const updatedUser = await authSvc.updateUser(email, {
+            const updatedUser = await authSvc.updateUser({email}, {
                 status: "active",
                 activationToken: null
             })
