@@ -50,7 +50,7 @@ class AuthController {
 
             const {email} = JWT.verify(token, process.env.ACTIVATION_SECRET)
 
-            const user = await authSvc.findOne(email)
+            const user = await authSvc.findOne({email})
 
             if(!user){
                 throw {code: 404, message: "user not found"}
