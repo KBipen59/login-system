@@ -1,3 +1,41 @@
 body{
     background: linear-gradient(142deg, rgba(196,235,255,1) 0%, rgba(241,235,255,1) 99%) !important;
 }
+
+#activation-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 500px;
+}
+
+/* .fade.show {
+    opacity: 1;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.447);
+} */
+
+.modal-body{
+    padding: 0;
+}
+
+.resend-popUp .close-btn{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: aliceblue;
+    color: black;
+}
+
+.send-btn:disabled{
+    cursor:not-allowed;
+}
+.spinner-border{
+    opacity: 0.7;
+    display: none;
+}
+.send-btn:disabled .spinner-border{
+    display: inline-block;
+}

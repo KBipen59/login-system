@@ -50,13 +50,13 @@ class AuthController {
 
             const {email} = JWT.verify(token, process.env.ACTIVATION_SECRET)
 
-            const user = await authSvc.findOne({email})
+            const user = await authSvc.findOne(email)
 
             if(!user){
                 throw {code: 404, message: "user not found"}
             }
 
-            const updatedUser = await authSvc.updateUser({email}, {
+            const updatedUser = await authSvc.updateUser(email, {
                 status: "active",
                 activationToken: null
             })
@@ -81,19 +81,19 @@ class AuthController {
                 throw {code: 404, message: "User not found"}
             }
 
-            user.activationToken = JWT.sign({email: email}, process.env.ACTIVATION_SECRET, {
+            const activationToken = JWT.sign({email: email}, process.env.ACTIVATION_SECRET, {
                 expiresIn: '5m'
             })
 
-            await user.save()
+            const updatedUser = await authSvc.updateUser(email, {activationToken})
 
             await mailSvc.sendEmail(
-                user.email,
+                updatedUser.email,
                 "Activate your Account!",
-                `Dear ${user.firstName} ${user.lastName} <br/>
-                <p>You have registered your account with username <strong>${user.firstName} ${user.lastName}</strong>.</p>
+                `Dear ${updatedUser.firstName} ${updatedUser.lastName} <br/>
+                <p>You have registered your account with username <strong>${updatedUser.firstName} ${updatedUser.lastName}</strong>.</p>
                 <p>Please click the link below or copy and paste the url in browser to activate your account:</p>
-                <a href="${process.env.FRONTEND_URL}/activate/${user.activationToken}">
+                <a href="${process.env.FRONTEND_URL}/activation/?token=${updatedUser.activationToken}">
                     Click here
                 </a>
                 <p>Regards,</p>

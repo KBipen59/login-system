@@ -6,7 +6,7 @@ const errorHandler = (err, req, res, next) => {
     let data = err.data || null
     let msg = err.message || 'Server Error'
 
-    console.log(err)
+    // console.log(err)
 
     if(err instanceof Joi.ValidationError){
         statusCode = 422

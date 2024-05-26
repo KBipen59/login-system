@@ -71,4 +71,4 @@
 
 Resgister: BASE_URL/auth/register
 Activation: BASE_URL/auth/activation/__token__
-Login: BASE_URL/auth/login
+Login: BASE_URL/auth/login (post-req)

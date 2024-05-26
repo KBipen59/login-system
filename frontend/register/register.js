@@ -50,7 +50,7 @@ const showToast = (message, type='error') => {
       }).showToast();
 }
 
-form.addEventListener('submit',function (e) {
+form.addEventListener('submit', async function (e) {
     e.preventDefault()
     const firstName = form.querySelector('#first-name')
     const lastName = form.querySelector('#last-name')
@@ -58,6 +58,7 @@ form.addEventListener('submit',function (e) {
     const password = form.querySelector('#password')
     const confirmPassword = form.querySelector('#confirm-password')
     const phone = form.querySelector('#phone')
+    const sendBtn = form.querySelector('.send-btn')
 
     const user = {
         firstName : firstName.value , 
@@ -123,15 +124,27 @@ form.addEventListener('submit',function (e) {
 
     userData.phone = userData.phone || undefined
 
-    fetchApi(userData)
+    // isSucess store a boolean value return from the fetchApi function
+    // This line also call the fetchApi function
+    const isSuccess = await fetchApi(userData , sendBtn)
+
+    if(isSuccess){
+        firstName.value = ""
+        lastName.value = ""
+        email.value = ""   
+        password.value = "" 
+        confirmPassword.value = "" 
+        phone.value = ""
+    }
 } )
 
 
 
 const BASE_URL = 'http://localhost:5000/api/v1/'
 
-async function fetchApi (user) {
+async function fetchApi (user , sendBtn) {
     try{
+        sendBtn.disabled = true
         const response = await fetch(`${BASE_URL}auth/register`, {
             method: "POST",
             body: JSON.stringify(user), 
@@ -145,10 +158,13 @@ async function fetchApi (user) {
         if(response.status !== 201 ){
             throw new Error(data.message)
         }
+        sendBtn.disabled = false
         showToast("Your account registration has been sucessfull and the activation link has been sent to your e-mail", "success")
-
+        return true
     }catch (error){
-        showToast(error)    
+        showToast(error)
+        sendBtn.disabled = false    
+        return false
     }
 }
 
