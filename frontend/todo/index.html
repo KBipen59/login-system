@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./todo.css">
 </head>
@@ -51,7 +52,7 @@
           </div>
         </nav>
     </header>
-    <section class="">
+    <section class="main-section">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-lg-10 col-xl-12">
@@ -59,241 +60,168 @@
               <div class="card-body p-4">
     
                 <h4 class="text-center my-3 pb-3">To-Do App</h4>
-                <!-- form-start -->
-                <form class="row row-cols-lg-auto g-3 d-flex justify-content-center align-items-center mb-4 pb-2">
-                  <div class="col-12">
-                    <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form1" class="form-control" placeholder="Enter a task here"/>
-                      <!-- <label class="form-label" for="form1">Enter a task here</label> -->
-                    </div>
-                  </div>
-                  <div class="input-btn d-flex col-4 ">
-                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Save</button>
-                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning">Get tasks</button>
-                  </div>
-                </form>
-                <!-- form end -->
-                <!-- tabs -->
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">category1</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Category 2</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Category 3</button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="">
-                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <!-- accordion-start -->
-                    <div class="lists">
-                      <table class=" table border-bottom-0 m-0">
-                        <thead>
-                          <tr class="table-top d-flex align-items-center justify-content-between">
-                            <th scope="col">S.N</th>
-                            <th scope="col">To-Do Lists</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Activity</th>
-                          </tr>
-                        </thead>
-                      </table>
-                    </div>
-                    <div class="accordion todo-lists" id="accordionPanelsStayOpenExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                            <table class="table border-bottom-0 m-0">
-                              <tr class="d-flex align-items-center justify-content-between">
-                                <th scope="row" class="table-head">1</th>
-                                <td>Buy groceries for next week</td>
-                                <td>In progress</td>
-                              </tr>
-                            </table>
-                          </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                          <div class="accordion-body d-flex justify-content-between gap-2">
-                            <div class="description-field col-6">
-                              <div class="form">
-                                <div class="form-floating">
-                                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                  <label for="floatingTextarea2">Comments</label>
-                                </div>
-                                <div class="timer">
-                                  deadline: timer(days-left) 
-                                </div>
-                                <div class="priroty">
-                                  Priority: high 
-                                </div>
-                              </div>
-                            </div>
-                            <div class="buttons-container col-6 text-center">
-                              <div class="buttons">
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                            <table class="table border-bottom-0 m-0">
-                              <tr class="d-flex align-items-center justify-content-between">
-                                <th scope="row" class="table-head">1</th>
-                                <td>Buy groceries for next week</td>
-                                <td>In progress</td>
-                                <td>
-                                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
-                                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
-                                </td>
-                              </tr>
-                            </table>
-                          </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
-                          <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="lists">
-                      <table class=" table border-bottom-0 m-0">
-                        <thead>
-                          <tr class="table-top d-flex align-items-center justify-content-between">
-                            <th scope="col">S.N</th>
-                            <th scope="col">To-Do Lists</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Activity</th>
-                          </tr>
-                        </thead>
-                      </table>
-                    </div>
-                    <div class="accordion todo-lists" id="accordionPanelsStayOpenExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                            <table class="table border-bottom-0 m-0">
-                              <tr class="d-flex align-items-center justify-content-between">
-                                <th scope="row" class="table-head">1</th>
-                                <td>Buy groceries for next week</td>
-                                <td>In progress</td>
-                                <td>
-                                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
-                                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
-                                </td>
-                              </tr>
-                            </table>
-                          </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                          <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                          </div>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                            <table class="table border-bottom-0 m-0">
-                              <tr class="d-flex align-items-center justify-content-between">
-                                <th scope="row" class="table-head">1</th>
-                                <td>Buy groceries for next week</td>
-                                <td>In progress</td>
-                                <td>
-                                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
-                                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
-                                </td>
-                              </tr>
-                            </table>
-                          </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
-                          <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fdesygner.com%2Fblog%2Ffree-stock-photo-sites%2F&psig=AOvVaw1U9W1SPSId9Meo5__IpAR6&ust=1717004347417000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJDo0-PxsIYDFQAAAAAdAAAAABAE" alt="">
-                  </div>
+
+                <!-- select-options -->
+                <div class="options-container w-100 d-flex justify-content-between pb-3 border-bottom border-secondary-subtle mb-2">
+                  <select class="form-select py-2 m-2" aria-label="Default select example">
+                    <option selected>All</option>
+                    <option value="pending">Pending</option>
+                    <option value="in_progress">In progress</option>
+                    <option value="in_review">In Review</option>
+                    <option value="complete">Complete</option>
+                  </select>
+
+                  <select class="form-select py-2 m-2" aria-label="Default select example">
+                    <option selected>Sort By</option>
+                    <option value="pending">Sort By Latest</option>
+                    <option value="in_progress">Sort By Oldest</option>
+                    <option value="in_progress">Ascending Order</option>
+                    <option value="in_progress">Descending Order</option>
+                  </select>
                 </div>
-                
-                <!-- tabs-end -->
-                <!-- accordion-start -->
-                <!-- <div class="accordian">
-                  <div class="lists">
-                    <table class=" table border-bottom-0 m-0">
-                      <thead>
-                        <tr class="table-top d-flex align-items-center justify-content-between">
-                          <th scope="col">S.N</th>
-                          <th scope="col">To-Do Lists</th>
-                          <th scope="col">Status</th>
-                          <th scope="col">Activity</th>
-                        </tr>
-                      </thead>
-                    </table>
+
+                <!--accordion  -->
+                <div class="todo-accordion__wrap">
+                  <div class="todo__headings">
+                    <span class="sn">S.N</span>
+                    <span>To-Do Lists</span>
+                    <span>Status</span>
                   </div>
                   <div class="accordion todo-lists" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
-                      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                          <table class="table border-bottom-0 m-0">
-                            <tr class="d-flex align-items-center justify-content-between">
-                              <th scope="row" class="table-head">1</th>
-                              <td>Buy groceries for next week</td>
-                              <td>In progress</td>
-                              <td>
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
-                              </td>
-                            </tr>
-                          </table>
+                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                          <div class="todo__details w-100">
+                            <span class="sn">1</span>
+                            <span>Todo title</span>
+                            <span>todo status</span>
+                          </div>
                         </button>
                       </h2>
-                      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          <div>
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          </div>
+                          <div class="accordion-btn__wrap">
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                          <table class="table border-bottom-0 m-0">
-                            <tr class="d-flex align-items-center justify-content-between">
-                              <th scope="row" class="table-head">1</th>
-                              <td>Buy groceries for next week</td>
-                              <td>In progress</td>
-                              <td>
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
-                              </td>
-                            </tr>
-                          </table>
+                          <div class="todo__details w-100">
+                            <span class="sn">1</span>
+                            <span>Todo title</span>
+                            <span>todo status</span>
+                          </div>
                         </button>
                       </h2>
                       <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          <div>
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          </div>
+                          <div class="accordion-btn__wrap">
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                          <div class="todo__details w-100">
+                            <span class="sn">1</span>
+                            <span>Todo title</span>
+                            <span>todo status</span>
+                          </div>
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                          <div>
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          </div>
+                          <div class="accordion-btn__wrap">
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                          <div class="todo__details w-100">
+                            <span class="sn">1</span>
+                            <span>Todo title</span>
+                            <span>todo status</span>
+                          </div>
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                          <div>
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          </div>
+                          <div class="accordion-btn__wrap">
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">Delete</button>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success ms-1">Finished</button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div> -->
+                </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="pop-up">
+      <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Add New To-Do</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="add-todo">
+                <div class="mb-3">
+                  <div class="form-floating">
+                    <textarea class="form-control title" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">To-Do Title</label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="form-floating">
+                    <textarea class="form-control desc" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Description</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <div class="message">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary addTodo-btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+        <i class="bi bi-plus-lg"></i>
+        <span class="todo-tooltip">Add new todo.</span>
+      </button>
+    </div>
+
+
     <div class="footer">
       <footer class="py-4">
           <div class="container">
@@ -310,8 +238,7 @@
               </div>
           </div>
       </footer>
-    </div> 
- 
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" ></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

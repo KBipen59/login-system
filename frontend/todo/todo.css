@@ -24,3 +24,109 @@ body{
   .table-top{
     padding: 8px 24px;
   }
+
+  .todo__headings{
+    display: flex;
+    padding: 1rem;
+  }
+  .todo__headings span {
+    display: inline-block;
+    flex: 1;
+    /* text-align: center; */
+    font-weight: 700;
+  }
+  /* .todo__headings .sn {
+    max-width: 86px;
+  } */
+
+  .todo-accordion__wrap{
+    overflow-x: auto;
+  }
+  .todo-lists,.todo__headings{
+    min-width: 600px;
+  }
+
+  .accordion-btn__wrap{
+    display: flex;
+    gap: 4px;
+    padding-top: 1rem;
+  }
+
+  .todo__details{
+    display: flex;
+  }
+  .todo__details span {
+    flex: 1;
+    display: inline-block;
+    /* text-align: center; */
+  }
+
+  .accordion-button{
+    position: relative;
+  }
+  .accordion-button::after{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .addTodo-btn{
+    position: fixed;
+    top: 80%;
+    right: 3%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #0D6EFD;
+  }
+  .addTodo-btn i{
+    font-size: 30px;
+  }
+
+  @keyframes upDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .addTodo-btn {
+    animation: upDown 1s infinite;
+  }
+  
+
+.addTodo-btn .todo-tooltip{
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background-color: red;
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease 0.35s;
+  font-size: 14px;
+  width: 120px;
+  border-radius: 4px;
+}
+
+.addTodo-btn:hover .todo-tooltip{
+  visibility: visible;
+  opacity: 1;
+}
+
+.form-select{
+  width: 28%
+}
+
+
+.message{
+  background-color: rgba(253, 17, 17, 0.882);
+  color: white;
+  text-align: center;
+  margin-top: 1.5rem;
+  transition: all ease 0.35s
+}

@@ -46,6 +46,16 @@ loginForm.addEventListener('submit', function (e) {
         email: email.value,
         password: password.value
     }
+    
+    if(!userLogin.email || !userLogin.password){
+        showToast('All Fields Required')
+    }
+    const emailReg = /^[\w+.-]+@([\w-]+\.)+[\w-]{2,4}$/
+    if (!userLogin.email.match(emailReg)) {
+        showToast("Please enter a valid Email address");
+        return;
+    }
+
     loginApi(userLogin)
 })
 
