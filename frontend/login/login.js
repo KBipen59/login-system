@@ -6,6 +6,7 @@ const passwordToggler = document.querySelector('.password-toggle')
 const eyeIcon = document.querySelector('.bi-eye-fill')
 const eyeSlash = document.querySelector('.bi-eye-slash')
 
+
 passwordToggler.addEventListener('click', function() {
     if(password.getAttribute("type") === "password"){
         password.setAttribute("type" ,"text")
@@ -60,7 +61,9 @@ loginForm.addEventListener('submit', function (e) {
 })
 
 async function loginApi (loginInfo) {
+    const sendBtn = loginForm.querySelector('.send-btn')
     try {
+        sendBtn.disabled = true
         const response = await fetch(`${BASE_URL}auth/login`, {
         method: "POST",
         body: JSON.stringify(loginInfo),
@@ -74,13 +77,17 @@ async function loginApi (loginInfo) {
     if(!response.ok){
         throw new Error(data.message)
     }
+    sendBtn.disabled = false
     showToast('sucessfull')
     // console.log(data)
     const token = data.result.accessToken
-    window.location.href = `http://127.0.0.1:5500/frontend/todo/?=${token}`
+    localStorage.setItem("todo-token" , token)
+    window.location.href = `http://127.0.0.1:5500/frontend/todo/`
+
+
     // showToast(`${data.message}` , "success")
     }catch (error){
-        console.log("Error:",error)
+        sendBtn.disabled = false    
         showToast(`${error}`)
     }
 }

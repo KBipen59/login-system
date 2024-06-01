@@ -35,3 +35,14 @@ body{
 .send-btn:disabled .spinner-border{
     display: inline-block;
 }
+
+@media screen and (max-width: 900px) {
+    .btn {
+        padding: 4px 8px;
+        font-size: 16px;
+        text-wrap: nowrap;
+    }
+}
+.hero-image{
+    max-width: 100%;
+}
