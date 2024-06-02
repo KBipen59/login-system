@@ -444,9 +444,32 @@ selectOptionSort.addEventListener('change', function (e) {
 
 
 
+
+
 // log out 
 // log-out btn onclicked ---> localstorage.remove token
 //  localstorage todo remove garne 
 //  redirect user to home page
-//  remove user data from local storage 
+//  remove user data from local storage
+
+// for user profile 
+function headerUi () {
+    const userProfile = document.querySelector('.user-email')
+    const userData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : []
+    const userEmail = userData.email
+    console.log(userData)
+    userProfile.innerHTML = `<h5 class="fw-bold fst-italic">${userEmail} </h5>`
+}
+headerUi()
+
+// for logging out
+const logOutBtn = document.querySelector('.log-out')
+
+logOutBtn.addEventListener('click' , function() {
+    localStorage.removeItem('todo-token')
+    localStorage.removeItem('todos')
+    localStorage.removeItem('userData')
+    window.location.href = `http://127.0.0.1:5500/frontend/`
+    showToast('Logged Out' , "success")
+})
 
