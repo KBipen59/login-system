@@ -1,4 +1,3 @@
-console.log(window.location.search)
 const token = window.location.search.split('?token=')[1]
 
 const messageDiv = document.querySelector('#activation-message')
@@ -50,7 +49,7 @@ const updateErrorMsg = () => {
 
 // /localhost:5000/api/v1/auth/activation/kanjdsfkjnaskndflkaskd
 
-const BASE_URL = 'http://localhost:5000/api/v1/'
+const BASE_URL = 'https://login-system-backend-et8k.onrender.com/'
 
 async function fetchApi() {
     try{
