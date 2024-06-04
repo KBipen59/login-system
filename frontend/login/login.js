@@ -1,4 +1,4 @@
-const BASE_URL = 'https://login-system-backend-et8k.onrender.com/'
+const BASE_URL = 'https://login-system-backend-et8k.onrender.com/api/v1/'
 const loginForm = document.querySelector('.logIn-form')
 const email = loginForm.querySelector('#email')
 const password = loginForm.querySelector('#password')

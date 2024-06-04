@@ -49,7 +49,7 @@ const updateErrorMsg = () => {
 
 // /localhost:5000/api/v1/auth/activation/kanjdsfkjnaskndflkaskd
 
-const BASE_URL = 'https://login-system-backend-et8k.onrender.com/'
+const BASE_URL = 'https://login-system-backend-et8k.onrender.com/api/v1/'
 
 async function fetchApi() {
     try{

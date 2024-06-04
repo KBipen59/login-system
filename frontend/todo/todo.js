@@ -26,7 +26,7 @@ if(!token){
 
 // fetching all todo lists from backend
 
-const BASE_URL = 'https://login-system-backend-et8k.onrender.com/'
+const BASE_URL = 'https://login-system-backend-et8k.onrender.com/api/v1/'
 let url = `${BASE_URL}todo/`
 
 async function fetchAllTodos (url) {
