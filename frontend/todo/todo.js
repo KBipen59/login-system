@@ -27,6 +27,7 @@ if(!token){
 // fetching all todo lists from backend
 
 const BASE_URL = 'https://login-system-backend-et8k.onrender.com/api/v1/'
+
 let url = `${BASE_URL}todo/`
 
 async function fetchAllTodos (url) {
@@ -325,55 +326,40 @@ editForm.addEventListener('submit' , async function(e) {
 
 const selectOptionStatus = document.querySelector('.status-select')
 const selectOptionSort = document.querySelector('.sort-select')
+let params = new URLSearchParams();
+
 
 selectOptionStatus.addEventListener('change', function () {
-    if(url.includes('?')){
-        if(url.includes('&status')){
-            let splitedUrl = url.split('&')
-            if(selectOptionStatus.value === 'all'){
-                fetchAllTodos(splitedUrl[0])
-            }else {
-                url = splitedUrl[0]+`&status=${selectOptionStatus.value}`
-                fetchAllTodos(url)
-            }
-        }else {
-            url = url+`&status=${selectOptionStatus.value}`
-            fetchAllTodos(url)
-        }
-    }else {
-        if(selectOptionStatus.value === "all"){
-            fetchAllTodos(url)
-        }else {
-            url = url+`?status=${selectOptionStatus.value}`
-            fetchAllTodos(url)
-        }
+    const status = selectOptionStatus.value;
+
+    if (status === 'all') {
+        params.delete('status');
+    } else {
+        params.set('status', status);
     }
+
+    fetchAllTodos(`${BASE_URL}todo?${params.toString()}`);
 
 })
 
 
 
 selectOptionSort.addEventListener('change', function (e) {
-    const key = selectOptionSort.value.split('-')[1]
-    const value = selectOptionSort.value.split('-')[0]
-    
-    if(url.includes('?')){
-        if(url.includes('?createdAt') || url.includes('?title')){
-            fetchAllTodos(`${BASE_URL}todo/?${key}=${value}`)
-            return
-        }
-        if(url.includes('&')){
-            const splitedUrl = url.split('&')
-            url = splitedUrl[0]+`&${key}=${value}`
-            fetchAllTodos(url)
-        }else {
-            url = url+`&${key}=${value}`
-            fetchAllTodos(url)
-        }
-    }else {
-        url = url+`?${key}=${value}`
-        fetchAllTodos(url)
+    const [value, key] = selectOptionSort.value.split('-');
+
+    // Check if the other option is currently set in params
+    if (key === 'title' && params.has('createdAt')) {
+        // Remove 'createdAt' if 'title' is selected
+        params.delete('createdAt');
+    } else if (key === 'createdAt' && params.has('title')) {
+        // Remove 'title' if 'createdAt' is selected
+        params.delete('title');
     }
+
+    // Always set the newly selected option
+    params.set(key, value);
+    fetchAllTodos(`${BASE_URL}todo?${params.toString()}`);
+
 })
 
 
