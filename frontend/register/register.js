@@ -83,7 +83,6 @@ form.addEventListener('submit', async function (e) {
         return 
     }
 
-    // const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
     const emailReg = /^[\w+.-]+@([\w-]+\.)+[\w-]{2,4}$/
     if (!user.email.match(emailReg)) {
         showToast("Please enter a valid Email address");
@@ -108,17 +107,6 @@ form.addEventListener('submit', async function (e) {
         return
         }
     }
-
-    // POST request to api
-    // const requestData = {
-    //     firstName: user.firstName,
-    //     lastName: user.lastName,
-    //     email: user.email,
-    //     password: user.password, 
-    //     phone: user.phone || undefined
-    // }
-
-    // fetchApi(requestData)
 
     const {confirmPassword: confirm, ...userData} = user
 

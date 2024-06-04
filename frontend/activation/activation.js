@@ -126,16 +126,3 @@ async function sendEmail(email , emailField , sendBtn) {
 
 
 
-
-
-
-
-// todo 
-// dom load ---> your account is being activated, please wait....
-// if success ---> show toast message and a button to redirect to log in page
-// if fail ---> dom message "faild to verify your account " and a button to resend the activation link 
-// on button clicked ----> a pop up with a form caontaining the email field and a submit button 
-// on submit button clicked an api call must be done to resend the activation link Base url + auth/resend-activation-link Put request with a body containing the email
-
-
-

@@ -72,14 +72,12 @@ async function loginApi (loginInfo) {
         }
         
     }) 
-    console.log(response)
     const data = await response.json()
     if(!response.ok){
         throw new Error(data.message)
     }
     sendBtn.disabled = false
     showToast('sucessfull' , "success")
-    // console.log(data)
     const userData = data.result.userData
     localStorage.setItem("userData" , JSON.stringify(userData))
     const token = data.result.accessToken
@@ -87,7 +85,7 @@ async function loginApi (loginInfo) {
     window.location.href = `http://127.0.0.1:5500/frontend/todo/`
 
 
-    // showToast(`${data.message}` , "success")
+    showToast(`${data.message}` , "success")
     }catch (error){
         sendBtn.disabled = false    
         showToast(`${error}`)

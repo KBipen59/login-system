@@ -50,13 +50,13 @@ class AuthController {
 
             const {email} = JWT.verify(token, process.env.ACTIVATION_SECRET)
 
-            const user = await authSvc.findOne(email)
+            const user = await authSvc.findOne({email: email})
 
             if(!user){
                 throw {code: 404, message: "user not found"}
             }
 
-            const updatedUser = await authSvc.updateUser(email, {
+            const updatedUser = await authSvc.updateUser({email: email}, {
                 status: "active",
                 activationToken: null
             })
@@ -126,6 +126,10 @@ class AuthController {
 
             if(!isMatchingPassword){
                 throw {code: 422, message: "email or password is incorrect."}
+            }
+
+            if(user.status !== 'active'){
+                throw {code: 400, message: "please activate your account to continue."}
             }
 
             const {password: hash, ...userData} = user

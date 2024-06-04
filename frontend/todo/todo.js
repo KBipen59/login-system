@@ -34,12 +34,11 @@ async function fetchAllTodos (url) {
         const response = await fetch( url , {
             headers: {Authorization: `bearer ${token}`}
         })
-        // console.log(response)
         if(response.status === 401){
             window.location.href ='http://127.0.0.1:5500/frontend/login/'
         }
         const data = await response.json()
-        console.log(data)
+
         localStorage.setItem('todos', JSON.stringify(data.result))
         // todo: store all result array as todos in local storage
 
@@ -160,7 +159,6 @@ todoForm.addEventListener('submit' , async function (e) {
             body: JSON.stringify(todoItem)
         })
         const data = await response.json()
-        console.log(data)
         if(!response.ok){
             throw new Error(data.message) 
         }
@@ -205,19 +203,16 @@ function deleteTodo () {
                     }
                 })
                 const data = await response.json()
-                console.log(data)
                 if(!response.ok){
                     throw new Error(data.message)
                 }
 
                 let todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : []
-                // console.log(todos)
                 const filteredTodos = todos.filter((todo) => {
                     if(todo._id !== id){
                         return todo
                     }
                 })
-                console.log(filteredTodos)
                 localStorage.setItem('todos',JSON.stringify(filteredTodos))
                 updateUi(filteredTodos)
                 btn.disabled = false
@@ -229,7 +224,6 @@ function deleteTodo () {
             }catch(error){
                 btn.disabled = false
                 showToast(error)
-                
             }
         })
     })
@@ -243,11 +237,10 @@ function populateEditForm () {
             const id = btn.getAttribute('data-id')
             let todos = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : []
             const todo = todos.find((todo) => {
-                if(todo._id ===id){
+                if(todo._id === id){
                     return todo
                 }
             })
-            console.log(todo)
             const title = document.querySelector('.edit-form .title')
             const description = document.querySelector('.edit-form .desc') 
             const option = document.querySelector('.edit-form .option-selection') 
@@ -317,7 +310,6 @@ editForm.addEventListener('submit' , async function(e) {
                 return todo
             }
         })
-        console.log(editedTodo)
         localStorage.setItem('todos', JSON.stringify(editedTodo))
         updateUi(editedTodo)
 
@@ -335,7 +327,6 @@ const selectOptionStatus = document.querySelector('.status-select')
 const selectOptionSort = document.querySelector('.sort-select')
 
 selectOptionStatus.addEventListener('change', function () {
-    console.log(selectOptionStatus.value)
     if(url.includes('?')){
         if(url.includes('&status')){
             let splitedUrl = url.split('&')
