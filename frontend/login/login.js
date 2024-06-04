@@ -82,7 +82,7 @@ async function loginApi (loginInfo) {
     localStorage.setItem("userData" , JSON.stringify(userData))
     const token = data.result.accessToken
     localStorage.setItem("todo-token" , token)
-    window.location.href = `http://127.0.0.1:5500/frontend/todo/`
+    window.location.href = `https://login-system-bipen.netlify.app/todo/`
 
 
     showToast(`${data.message}` , "success")

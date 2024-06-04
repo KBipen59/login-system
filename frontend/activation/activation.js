@@ -28,7 +28,7 @@ const updateSuccessMsg = (msg) => {
     <div class="message text-center">
         <h1 class="display-2">${msg}</h1>
     </div> 
-    <a type="button" class="btn btn-primary btn-lg" href="http://127.0.0.1:5500/frontend/login/">Login</a>
+    <a type="button" class="btn btn-primary btn-lg" href="https://login-system-bipen.netlify.app/login/">Login</a>
     `
 }
 

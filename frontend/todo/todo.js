@@ -21,7 +21,7 @@ const showToast = (message, type='error') => {
 const token = localStorage.getItem('todo-token')
 
 if(!token){
-    window.location.href = "http://127.0.0.1:5500/frontend/login/"
+    window.location.href = "https://login-system-bipen.netlify.app/login/"
 }
 
 // fetching all todo lists from backend
@@ -35,7 +35,7 @@ async function fetchAllTodos (url) {
             headers: {Authorization: `bearer ${token}`}
         })
         if(response.status === 401){
-            window.location.href ='http://127.0.0.1:5500/frontend/login/'
+            window.location.href ='https://login-system-bipen.netlify.app/login/'
         }
         const data = await response.json()
 
@@ -293,7 +293,7 @@ editForm.addEventListener('submit' , async function(e) {
             body : JSON.stringify(formValue)
         })
         if(response.status === 401){
-            window.location.href ='http://127.0.0.1:5500/frontend/login/'
+            window.location.href ='https://login-system-bipen.netlify.app/login/'
         }
         const data = await response.json()
         if(!response.ok){
@@ -391,7 +391,7 @@ selectOptionSort.addEventListener('change', function (e) {
 //         });
 
 //         if (response.status === 401) {
-//             window.location.href = 'http://127.0.0.1:5500/frontend/login/';
+//             window.location.href = 'https://login-system-bipen.netlify.app/login/';
 //             return;
 //         }
 
@@ -460,7 +460,7 @@ logOutBtn.addEventListener('click' , function() {
     localStorage.removeItem('todo-token')
     localStorage.removeItem('todos')
     localStorage.removeItem('userData')
-    window.location.href = `http://127.0.0.1:5500/frontend/`
+    window.location.href = `https://login-system-bipen.netlify.app/`
     showToast('Logged Out' , "success")
 })
 
